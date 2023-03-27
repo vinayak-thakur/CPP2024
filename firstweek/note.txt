@@ -1,4 +1,4 @@
 Basics of programming 
 - 1. Flowcharts and pseudocodes
-- 2. hellow world proogram
+- 2. hello world proogram
 - 3. patterns 
