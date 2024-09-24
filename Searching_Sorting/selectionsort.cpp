@@ -2,7 +2,7 @@
 using namespace std;
 void selectionSort(vector<int>& arr, int n)
 {
-    for (int i = 0; i <= n - 2; i++) {
+    for (int i = 0; i <= n - 1; i++) {
         // Assume the current index holds the smallest value
         int minIndex = i;
         // Find the minimum element in the remaining unsorted array
@@ -12,7 +12,7 @@ void selectionSort(vector<int>& arr, int n)
             }
         }
         // Swap the found minimum element with the first element
-        if (minIndex != i) {
+        if (i !=minIndex ) {
             swap(arr[minIndex], arr[i]);
         }
     }
@@ -28,3 +28,4 @@ int main()
     }
 return 0 ;
 }
+
