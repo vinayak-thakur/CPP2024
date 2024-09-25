@@ -47,7 +47,7 @@ int main() {
 
     return 0;
 }
-
+```
 # Detailed Explanation of the Code
 
 ### Outer Loop (`for (int i = 1; i < size; i++)`):
