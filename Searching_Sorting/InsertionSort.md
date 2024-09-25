@@ -48,131 +48,127 @@ int main() {
     return 0;
 }
 
-Detailed Explanation of the Code:
-Outer Loop (for (int i = 1; i < size; i++)):
+# Detailed Explanation of the Code
 
-This loop starts from the second element (i = 1) because we assume that the first element is already sorted.
-i tracks the current element that needs to be placed in the correct position in the sorted portion.
-Inner Loop (while (j >= 0 && array[j] > temp)):
+### Outer Loop (`for (int i = 1; i < size; i++)`):
 
-temp holds the current element (array[i]) which needs to be inserted into the sorted part.
-j = i - 1 refers to the index of the last element in the sorted portion.
-The inner loop checks if the current element (temp) is smaller than any element in the sorted portion. If so, it shifts the larger elements one position to the right until it finds the correct spot for temp.
-Insertion Step (array[j + 1] = temp):
+- This loop starts from the second element (`i = 1`) because we assume that the first element is already sorted.
+- `i` tracks the current element that needs to be placed in the correct position in the sorted portion.
 
-Once we find the correct position for temp (i.e., when the inner loop terminates), we insert it at index j + 1.
-**Dry Run of the Code**
+### Inner Loop (`while (j >= 0 && array[j] > temp)`):
 
-Let’s walk through a dry run of the algorithm using the input array {5, 4, 10, 1, 6, 2}.
+- `temp` holds the current element (`array[i]`) which needs to be inserted into the sorted part.
+- `j = i - 1` refers to the index of the last element in the sorted portion.
+- The inner loop checks if the current element (`temp`) is smaller than any element in the sorted portion. If so, it shifts the larger elements one position to the right until it finds the correct spot for `temp`.
 
-**Initial Array:**
+### Insertion Step (`array[j + 1] = temp`):
 
-Copy code
+- Once we find the correct position for `temp` (i.e., when the inner loop terminates), we insert it at index `j + 1`.
 
-\[5, 4, 10, 1, 6, 2\]
+---
 
-**Pass 1 (**i = 1**):**
+# Dry Run of the Code
 
-- temp = array\[1\] = 4
+Let’s walk through a dry run of the algorithm using the input array `{5, 4, 10, 1, 6, 2}`.
+
+### Initial Array:
+
+`[5, 4, 10, 1, 6, 2]`
+
+### Pass 1 (`i = 1`):
+
+- `temp = array[1] = 4`
 - Compare 4 with 5 (the first element in the sorted portion).
-- Since 4 < 5, we shift 5 to the right, and then insert 4 at the start.
+- Since `4 < 5`, we shift 5 to the right, and then insert 4 at the start.
 
 **Array after Pass 1:**
 
-Copy code
+`[4, 5, 10, 1, 6, 2]`
 
-\[4, 5, 10, 1, 6, 2\]
+### Pass 2 (`i = 2`):
 
-**Pass 2 (**i = 2**):**
-
-- temp = array\[2\] = 10
-- Compare 10 with 5. No shift is required because 10 > 5.
+- `temp = array[2] = 10`
+- Compare 10 with 5. No shift is required because `10 > 5`.
 - Insert 10 in the same position.
 
 **Array after Pass 2:**
 
-Copy code
+`[4, 5, 10, 1, 6, 2]`
 
-\[4, 5, 10, 1, 6, 2\]
+### Pass 3 (`i = 3`):
 
-**Pass 3 (**i = 3**):**
-
-- temp = array\[3\] = 1
+- `temp = array[3] = 1`
 - Compare 1 with 10, 5, and 4.
-- Since 1 < 4, we shift 10, 5, and 4 to the right and insert 1 at the start.
+- Since `1 < 4`, we shift 10, 5, and 4 to the right and insert 1 at the start.
 
 **Array after Pass 3:**
 
-Copy code
+`[1, 4, 5, 10, 6, 2]`
 
-\[1, 4, 5, 10, 6, 2\]
+### Pass 4 (`i = 4`):
 
-**Pass 4 (**i = 4**):**
-
-- temp = array\[4\] = 6
+- `temp = array[4] = 6`
 - Compare 6 with 10.
-- Since 6 < 10, shift 10 to the right, then insert 6 at index 3.
+- Since `6 < 10`, shift 10 to the right, then insert 6 at index 3.
 
 **Array after Pass 4:**
 
-Copy code
+`[1, 4, 5, 6, 10, 2]`
 
-\[1, 4, 5, 6, 10, 2\]
+### Pass 5 (`i = 5`):
 
-**Pass 5 (**i = 5**):**
-
-- temp = array\[5\] = 2
+- `temp = array[5] = 2`
 - Compare 2 with 10, 6, 5, and 4.
-- Since 2 < 4, shift 10, 6, 5, and 4 to the right, then insert 2 at index 1.
+- Since `2 < 4`, shift 10, 6, 5, and 4 to the right, then insert 2 at index 1.
 
 **Array after Pass 5:**
 
-Copy code
+`[1, 2, 4, 5, 6, 10]`
 
-\[1, 2, 4, 5, 6, 10\]
+---
 
-**Final Sorted Array:**
-
-Copy code
-
-\[1, 2, 4, 5, 6, 10\]
-
-**Step-by-Step Breakdown:**
+# Step-by-Step Breakdown:
 
 - **Pass 1 (i = 1):**
-  - temp = array\[1\] = 4
-  - j = 0 (comparing with 5)
-  - Since 4 < 5, shift 5 to the right, insert 4.
-  - Array becomes: \[4, 5, 10, 1, 6, 2\]
+  - `temp = array[1] = 4`
+  - `j = 0` (comparing with 5)
+  - Since `4 < 5`, shift 5 to the right, insert 4.
+  - Array becomes: `[4, 5, 10, 1, 6, 2]`
+  
 - **Pass 2 (i = 2):**
-  - temp = array\[2\] = 10
-  - j = 1 (comparing with 5)
-  - No shift needed as 10 > 5.
-  - Array remains: \[4, 5, 10, 1, 6, 2\]
+  - `temp = array[2] = 10`
+  - `j = 1` (comparing with 5)
+  - No shift needed as `10 > 5`.
+  - Array remains: `[4, 5, 10, 1, 6, 2]`
+  
 - **Pass 3 (i = 3):**
-  - temp = array\[3\] = 1
-  - j = 2 (comparing with 10), shift 10 to the right.
-  - j = 1 (comparing with 5), shift 5 to the right.
-  - j = 0 (comparing with 4), shift 4 to the right.
+  - `temp = array[3] = 1`
+  - `j = 2` (comparing with 10), shift 10 to the right.
+  - `j = 1` (comparing with 5), shift 5 to the right.
+  - `j = 0` (comparing with 4), shift 4 to the right.
   - Insert 1 at the beginning.
-  - Array becomes: \[1, 4, 5, 10, 6, 2\]
+  - Array becomes: `[1, 4, 5, 10, 6, 2]`
+  
 - **Pass 4 (i = 4):**
-  - temp = array\[4\] = 6
-  - j = 3 (comparing with 10), shift 10 to the right.
+  - `temp = array[4] = 6`
+  - `j = 3` (comparing with 10), shift 10 to the right.
   - Insert 6 at index 3.
-  - Array becomes: \[1, 4, 5, 6, 10, 2\]
+  - Array becomes: `[1, 4, 5, 6, 10, 2]`
+  
 - **Pass 5 (i = 5):**
-  - temp = array\[5\] = 2
-  - j = 4 (comparing with 10), shift 10 to the right.
-  - j = 3 (comparing with 6), shift 6 to the right.
-  - j = 2 (comparing with 5), shift 5 to the right.
-  - j = 1 (comparing with 4), shift 4 to the right.
+  - `temp = array[5] = 2`
+  - `j = 4` (comparing with 10), shift 10 to the right.
+  - `j = 3` (comparing with 6), shift 6 to the right.
+  - `j = 2` (comparing with 5), shift 5 to the right.
+  - `j = 1` (comparing with 4), shift 4 to the right.
   - Insert 2 at index 1.
-  - Array becomes: \[1, 2, 4, 5, 6, 10\]
+  - Array becomes: `[1, 2, 4, 5, 6, 10]`
 
-**Time Complexity:**
+---
 
-- **Best Case (Already Sorted Array)**: O(n)
-- **Average and Worst Case**: O(n²)
+# Time Complexity:
+
+- **Best Case (Already Sorted Array)**: `O(n)`
+- **Average and Worst Case**: `O(n²)`
 
 In the worst case (reverse sorted array), for every element, we might have to shift all previous elements.
