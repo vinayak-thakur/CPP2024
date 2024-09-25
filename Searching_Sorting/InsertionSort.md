@@ -192,3 +192,19 @@ Let’s walk through a dry run of the algorithm using the input array `{5, 4, 10
 
 In the worst case (reverse sorted array), for every element, we might have to shift all previous elements.
 
+# Detailed Explanation of the Code
+
+### Outer Loop (`for (int i = 1; i < size; i++)`):
+
+- This loop starts from the second element (`i = 1`) because we assume that the first element is already sorted.
+- `i` tracks the current element that needs to be placed in the correct position in the sorted portion.
+
+### Inner Loop (`while (j >= 0 && array[j] > temp)`):
+
+- `temp` holds the current element (`array[i]`) which needs to be inserted into the sorted part.
+- `j = i - 1` refers to the index of the last element in the sorted portion.
+- The inner loop checks if the current element (`temp`) is smaller than any element in the sorted portion. If so, it shifts the larger elements one position to the right until it finds the correct spot for `temp`.
+
+### Insertion Step (`array[j + 1] = temp`):
+
+- Once we find the correct position for `temp` (i.e., when the inner loop terminates), we insert it at index `j + 1`.
