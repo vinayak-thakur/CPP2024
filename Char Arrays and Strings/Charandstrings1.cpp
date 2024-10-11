@@ -188,3 +188,49 @@
     cout<<sentence.find(target); 
  return 0 ;
  }
+
+/* palindrome number(9) leetcode 
+solution using strings :
+
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        string number =  to_string (x);
+        int n = number.size();
+        int i=0;
+        int j=n-1;
+        if (x<0){
+            return false;
+        }
+        for(i;i<=j;i++){
+            if(number[i]!=number[j]){
+                return false;
+            }
+            j--;
+        }
+        return true;
+
+       
+    }
+};
+
+solution without strings 
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        if (x < 0) return false; // Negative numbers cannot be palindromes
+
+        long original = x;
+        long reversed = 0;
+
+        while (x != 0) {
+            long one_digit = x % 10;
+            reversed = reversed * 10 + one_digit;
+            x = x / 10;
+        }
+
+        return original == reversed;
+    }
+};
+
+*/
