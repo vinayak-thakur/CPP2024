@@ -44,7 +44,7 @@ Explanation:
 4. **Returning the Result**:
    - Once the number becomes 0, the loop exits, and the total count of digits is returned.
 
-5. /* Dry Run for Input 23453:
+5.  Dry Run for Input 23453:
 
 1. Initialization:
     - n = 23453
@@ -70,8 +70,8 @@ Explanation:
     - n = 2 / 10 = 0 (loop stops as n becomes 0)
     - count = 4 + 1 = 5
 
-Final Output:
+*Final Output*:
     Number of digits in 23453: 5
-*/
+
 
 */
