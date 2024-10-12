@@ -28,7 +28,7 @@ int main(){
     (ans == 1) ? cout << "True" : cout << "False";  // Output result
 }
 ```
-/*
+
 Detailed Explanation:
 
 1. **Function `prime(int n)`**:
@@ -93,4 +93,3 @@ Detailed Explanation:
 
 **Space Complexity**:
 - The space complexity is `O(1)` since no extra space is used apart from a few variables.
-*/ 
