@@ -1,3 +1,4 @@
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -24,7 +25,7 @@ int main() {
     armstrong(n) ? cout << "True" : cout << "False";  // Output should be True for 153
     return 0;
 }
-
+```
 
 ### Detailed Explanation:
 
