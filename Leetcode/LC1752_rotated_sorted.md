@@ -1,4 +1,4 @@
-/*
+
 # Problem Explanation
 
 We are given an array `nums` that may have been sorted in non-decreasing order and then rotated. Our task is to determine if the array is valid under this condition. 
@@ -24,14 +24,18 @@ using namespace std;
 
 bool check(vector<int>& nums) {
     // Step 1: Store all unique elements in a set
-    unordered_set<int> uniqueElements(nums.begin(), nums.end());
+    int n = nums.size();
+    unordered_set<int> uniqueElements;
+     for(int i=0;i<n;i++){
+            uniqueElements.insert(nums[i]);
 
+         }
     // Special case: If all elements are the same, the array is valid
     if (uniqueElements.size() == 1) {
         return true;
     }
 
-    int n = nums.size();
+    
     int count = 0;  // This will store the number of drops in the array
 
     // Step 2: Traverse the array to count drops
@@ -104,4 +108,4 @@ bool check(vector<int>& nums) {
   
 - **Space Complexity:**  
   - The space complexity is O(n), since we are storing all unique elements in a set. The maximum space used by the set will be the size of the array.
-*/
+
